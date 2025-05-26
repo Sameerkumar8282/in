@@ -1,52 +1,83 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-image: url('parchment-bg.jpg'); /* Use parchment-style background */
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'IM Fell English SC', serif;
-  color: #3b1d0f;
-}
+ body {
+      margin: 0;
+      padding: 0;
+      background-image: url('parchment-bg.jpg'); /* Use parchment-style background */
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: 'IM Fell English SC', serif;
+      color: #3b1d0f;
+    }
 
-.invitation-card {
-  max-width: 700px;
-  margin: 50px auto;
-  background-color: rgba(255, 248, 220, 0.9); /* parchment tint */
-  padding: 40px;
-  border: 10px solid #5c3b1e;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
-  text-align: center;
-}
+    .wand-container {
+      font-size: 4rem;
+      text-align: center;
+      margin: 60px 0 20px 0;
+      opacity: 1;
+      animation: wandGlow 2s ease-in-out forwards;
+    }
 
-.invitation-card h1 {
-  font-family: 'UnifrakturCook', cursive;
-  font-size: 2.5rem;
-  color: #4b0505;
-  margin-bottom: 20px;
-}
+    @keyframes wandGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2) rotate(10deg); }
+    }
 
-.invitation-card h2 {
-  font-family: 'UnifrakturCook', cursive;
-  font-size: 2rem;
-  margin: 15px 0;
-  color: #2e1a0f;
-}
+    .invitation-card {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: rgba(255, 248, 220, 0.9); /* parchment tint */
+      padding: 40px;
+      border: 10px solid #5c3b1e;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      text-align: center;
+      opacity: 0; /* hidden initially */
+      transition: opacity 0.5s ease;
+    }
 
-.invitation-card h2 span {
-  font-size: 1.5rem;
-  font-style: italic;
-}
+    /* Hide lines initially */
+    .invitation-card h1,
+    .invitation-card h2,
+    .invitation-card p {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      margin: 0 0 15px 0;
+    }
 
-.details {
-  font-size: 1.1rem;
-  margin: 20px 0;
-  line-height: 1.6;
-}
+    /* Show line */
+    .invitation-card .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.quote {
-  font-style: italic;
-  margin-top: 30px;
-  font-size: 1rem;
-  color: #5c4033;
-}
+    .invitation-card h1 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2.5rem;
+      color: #4b0505;
+      margin-bottom: 20px;
+    }
+
+    .invitation-card h2 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2rem;
+      margin: 15px 0;
+      color: #2e1a0f;
+    }
+
+    .invitation-card h2 span {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+
+    .details {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .quote {
+      font-style: italic;
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #5c4033;
+    }
