@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('parchment-bg.jpg'); /* Use parchment-style background */
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'IM Fell English SC', serif;
+  color: #3b1d0f;
+}
+
+.invitation-card {
+  max-width: 700px;
+  margin: 50px auto;
+  background-color: rgba(255, 248, 220, 0.9); /* parchment tint */
+  padding: 40px;
+  border: 10px solid #5c3b1e;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.invitation-card h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 2.5rem;
+  color: #4b0505;
+  margin-bottom: 20px;
+}
+
+.invitation-card h2 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 2rem;
+  margin: 15px 0;
+  color: #2e1a0f;
+}
+
+.invitation-card h2 span {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.details {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.quote {
+  font-style: italic;
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #5c4033;
+}
