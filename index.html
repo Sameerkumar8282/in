@@ -4,15 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Magical Invitation</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=IM+Fell+English+SC&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="wand-container">
-    ✨🪄✨
-  </div>
 
-  <div class="invitation-card">
+  <!-- Wand image container -->
+  <div id="wand-container">
+  <img src="/wand.gif" alt="wand" class="wand-gif" />
+</div>
+
+
+  <!-- Invitation card -->
+  <div class="invitation-card" id="invitation-card">
     <h1>⚡ A Magical Celebration Awaits!! ⚡</h1>
     <p>By Order of the Ministry of Magic,<br>
        You are cordially invited to celebrate the<br>
@@ -26,30 +30,33 @@
     <p class="quote">“Happiness can be found even in the darkest of times, if one only remembers to turn on the light.”</p>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const wand = document.querySelector('.wand-container');
-      const invitation = document.querySelector('.invitation-card');
-      const lines = invitation.querySelectorAll('h1, p, h2');
+<script>
+  // Wait for wand animation to finish (3s)
+  const wand = document.getElementById('wand-container');
+  const card = document.getElementById('invitation-card');
 
-      // After wand animation ends (2s), start revealing text lines one by one
-      setTimeout(() => {
-        // Fade out wand
-        wand.style.transition = "opacity 0.5s ease";
-        wand.style.opacity = 0;
+  wand.addEventListener('animationend', () => {
+    // Hide wand
+    wand.style.display = 'none';
 
-        // Fade in invitation container
-        invitation.style.opacity = 1;
+    // Show card container
+    card.style.display = 'block';
 
-        let delay = 0;
-        lines.forEach(line => {
-          setTimeout(() => {
-            line.classList.add('visible');
-          }, delay);
-          delay += 700;  // delay between lines in ms
-        });
-      }, 2200); // slightly more than wand animation time
-    });
-  </script>
+    // Animate lines of text one by one
+    const elements = [...card.querySelectorAll('h1, p, h2, .details, .quote')];
+
+    let index = 0;
+    function showNextLine() {
+      if (index >= elements.length) return;
+      const el = elements[index];
+      el.style.transition = 'opacity 0.6s ease';
+      el.style.opacity = '1';
+      index++;
+      setTimeout(showNextLine, 700);
+    }
+    showNextLine();
+  });
+</script>
+
 </body>
 </html>
